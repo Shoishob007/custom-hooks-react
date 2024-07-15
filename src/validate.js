@@ -1,20 +1,19 @@
 export default function validate(values) {
     let errors = {};
 
-    const namePattern = /^[A-Za-z\s]{4,}$/;
-    const surNamePattern = /^[A-Za-z0-9\s]{3,}$/;
-
+    const namePattern = /^[A-Za-z\s]{4,30}$/;
+    const surNamePattern = /^[A-Za-z\s]{3,20}$/;
 
     if (!values.name) {
         errors.name = 'Name is required';
     } else if (!namePattern.test(values.name)) {
-        errors.name = 'Name must be at least 4 characters and contain only letters and spaces';
+        errors.name = 'Name must be at least 4 and at max 30 characters long and contains letters and spaces';
     }
 
     if (!values.surname) {
         errors.surname = 'Surname is required';
     } else if (!surNamePattern.test(values.surname)) {
-        errors.surname = 'Surname must be at least 3 characters and contain only letters and spaces';
+        errors.surname = 'Name must be at least 4 and at max 30 characters long and contains letters and spaces';
     }
 
     if (!values.age) {

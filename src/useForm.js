@@ -19,11 +19,16 @@ export function useForm(callback, validate) {
         setIsSubmitting(true);
     };
 
+    const resetForm = () => {
+        setValues({});
+        setErrors({});
+    };
+
     useEffect(() => {
         if (Object.keys(errors).length === 0 && isSubmitting) {
             callback();
+            resetForm();
             setIsSubmitting(false);
-            setValues({});
         }
     }, [errors]);
 
@@ -32,7 +37,7 @@ export function useForm(callback, validate) {
         handleSubmit,
         values,
         errors,
-        getFieldProps: (name) => ({
+        addFormData: (name) => ({
             name,
             value: values[name] || '',
             onChange: handleChange,
