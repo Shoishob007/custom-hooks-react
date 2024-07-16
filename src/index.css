@@ -7,3 +7,15 @@
 .list-group {
   margin-bottom: 10px;
 }
+
+.translate-x-full {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.translate-x-0 {
+  transform: translateX(0);
+  opacity: 1;
+}
+.transition-transform {
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}

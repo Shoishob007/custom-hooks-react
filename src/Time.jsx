@@ -6,7 +6,7 @@ export default function TimeComponent() {
   useEffect(() => {
     const interval = setInterval(() => {
       setTime(new Date().toLocaleTimeString());
-    }, 10000);
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
 
