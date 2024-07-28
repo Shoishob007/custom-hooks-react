@@ -6,18 +6,22 @@ import List from "./List";
 
 export default function App() {
   const [data, setData] = useState(() => {
-    const storedData = sessionStorage.getItem("data");
+    const storedData = localStorage.getItem("data");
     return storedData ? JSON.parse(storedData) : [];
   });
 
   const addData = (values) => {
     const newData = [...data, values];
     setData(newData);
-    sessionStorage.setItem("data", JSON.stringify(newData));
+  };
+
+  const deleteData = (index) => {
+    const newData = data.filter((_, i) => i !== index);
+    setData(newData);
   };
 
   useEffect(() => {
-    sessionStorage.setItem("data", JSON.stringify(data));
+    localStorage.setItem("data", JSON.stringify(data));
   }, [data]);
 
   console.log(data);
@@ -26,7 +30,7 @@ export default function App() {
     <div className="container mt-5">
       <div className="row">
         <Form addData={addData} />
-        <List items={data} />
+        <List Listitems={data} deleteData={deleteData} />
       </div>
       <div>
         <Time />

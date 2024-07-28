@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { useForm } from "./useForm";
+import { useForm } from "./hooks/useForm";
 import validate from "./validate";
 
 export default function Form({ addData }) {
@@ -14,6 +14,8 @@ export default function Form({ addData }) {
 
   return (
     <div className="col-md-6">
+      <h3 className="text-center">Add Details</h3>
+
       <form onSubmit={handleSubmit} noValidate>
         <div className="form-group">
           <label>Name</label>

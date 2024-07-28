@@ -9,7 +9,6 @@ export default function TimeComponent() {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
-
   console.log("Time Rendered");
 
   return (
